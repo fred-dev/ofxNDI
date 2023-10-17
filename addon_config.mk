@@ -64,7 +64,6 @@ common:
 vs:
 	ADDON_DLLS_TO_COPY =
 	ADDON_DLLS_TO_COPY += libs/NDI/libs/vs/x64/Processing.NDI.Lib.x64.dll
-	ADDON_DLLS_TO_COPY += libs/NDI/libs/vs/Win32/Processing.NDI.Lib.x86.dll
 
 	# binary libraries, these will be usually parsed from the file system but some 
 	# libraries need to passed to the linker in a specific order/
@@ -82,7 +81,6 @@ ios:
 	# ...
 linux64:
 linux:
-win_cb:
 linuxarmv6l:
 linuxarmv7l:
 android/armeabi:	
