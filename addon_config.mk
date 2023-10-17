@@ -61,21 +61,25 @@ common:
 	# when parsing the file system looking for libraries exclude this for all or
 	# a specific platform
 	# ADDON_LIBS_EXCLUDE =
-	
+vs:
 	ADDON_DLLS_TO_COPY =
-	ADDON_DLLS_TO_COPY += libs/NDI/export/vs/x64/Processing.NDI.Lib.x64.dll
-	ADDON_DLLS_TO_COPY += libs/NDI/export/vs/Win32/Processing.NDI.Lib.x86.dll
+	ADDON_DLLS_TO_COPY += libs/NDI/libs/vs/x64/Processing.NDI.Lib.x64.dll
+	ADDON_DLLS_TO_COPY += libs/NDI/libs/vs/Win32/Processing.NDI.Lib.x86.dll
 
 	# binary libraries, these will be usually parsed from the file system but some 
 	# libraries need to passed to the linker in a specific order/
 	# 
 	# For example in the ofxOpenCV addon we do something like this:
 	#
-	# ADDON_LIBS =
-	# ADDON_LIBS += libs/opencv/lib/linuxarmv6l/libopencv_legacy.a
-	# ADDON_LIBS += libs/opencv/lib/linuxarmv6l/libopencv_calib3d.a
+osx:
+	ADDON_LDFLAGS = -Xlinker -rpath -Xlinker @executable_path
+	ADDON_LIBS =
+	ADDON_LIBS += libs/NDI/libs/macOS/libndi.dylib
 	# ...
-
+ios:
+	ADDON_LIBS =
+	ADDON_LIBS += libs/NDI/libs/iOS/libndi.dylib
+	# ...
 linux64:
 linux:
 win_cb:

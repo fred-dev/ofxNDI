@@ -63,11 +63,14 @@ void ofApp::setup(){
 	senderName = "Openframeworks NDI Sender";
 	ofSetWindowTitle(senderName); // show it on the title bar
 
-	#ifdef _WIN64
+#ifdef _WIN32
+    #ifdef _WIN64
 	cout << "\nofxNDI example sender - 64 bit" << endl;
 	#else // _WIN64
 	cout << "\nofxNDI example sender - 32 bit" << endl;
 	#endif // _WIN64
+#endif
+
 
 	cout << ndiSender.GetNDIversion() << " (https://www.ndi.tv/)" << endl;
 
@@ -76,8 +79,8 @@ void ofApp::setup(){
 	// 4K is set as the starting resolution to help
 	// assess performance with different options.
 	// It can be changed using the 'S' key.
-	senderWidth  = 3480;
-	senderHeight = 2160;
+	senderWidth  = 1920;
+	senderHeight = 1080;
 
 	// Create an RGBA fbo for collection of data
 	m_fbo.allocate(senderWidth, senderHeight, GL_RGBA);
